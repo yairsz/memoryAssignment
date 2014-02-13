@@ -8,15 +8,42 @@
 
 #import <Foundation/Foundation.h>
 
+void printString (char str[]);
+
 int main(int argc, const char * argv[])
 {
 
     @autoreleasepool {
         
         // insert code here...
-        NSLog(@"Hello, World!");
+        char (*str)[9];
+        int arrayLength;
+        
+        arrayLength = (int) sizeof(str);
+        
+        str = malloc(arrayLength * sizeof * str);
+        
+        for (int i = 0;i < arrayLength;i++) {
+            strcpy(str[i], "a");
+        }
+        
+        for (int i = 0;i < arrayLength;i++) {
+            printf("%s\n",str[i]);
+        }
+
+        
+        strcpy(str[3], "c");
+        strcpy(str[7], "e");
+        
+        for (int i = 0;i < arrayLength;i++) {
+            printf("%s\n",str[i]);
+        }
+
+        free(str);
         
     }
     return 0;
 }
+
+
 
